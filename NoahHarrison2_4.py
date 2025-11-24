@@ -105,49 +105,51 @@ def solve(L, U, b):
 
     return x
 
-mat = [
+if __name__ == '__main__':
 
-    [2, 1, 0, 0],
-    [2, -4, 0, 0],
-    [0, -1, -3, 1],
-    [0, 0, -1, 2]
+    mat = [
 
-]
+        [2, 1, 0, 0],
+        [2, -4, 0, 0],
+        [0, -1, -3, 1],
+        [0, 0, -1, 2]
 
-b = [
+    ]
 
-    [3],
-    [-2],
-    [-3],
-    [1]
+    b = [
 
-]
+        [3],
+        [-2],
+        [-3],
+        [1]
 
-print("Original Matrix:")
-lat.print_matrix(mat,0)
+    ]
 
-# test one-matrix function
-print("Thomas Factorization with one-matrix function")
-A = factorization_onematrix(mat)
-lat.print_matrix(A, 5)
+    print("Original Matrix:")
+    lat.print_matrix(mat,0)
 
-# test two-matrix function
-print("Thomas Factorization with two-matrix function")
-L, U = factorization_twomatrices(mat)
-print("L:")
-lat.print_matrix(L, 5)
-print("U:")
-lat.print_matrix(U, 5)
+    # test one-matrix function
+    print("Thomas Factorization with one-matrix function")
+    A = factorization_onematrix(mat)
+    lat.print_matrix(A, 5)
 
-# solve Ax=b
-print("(b) Vector:")
-lat.print_matrix(b, 0)
-print("Solution (x) for Ax=b:")
-x = solve(A, A, b)
-lat.print_matrix(x, 20)
-print("which becomes")
-lat.print_matrix(x, 0, False)
-print("when rounded.\n")
-# this should return b
-print("Result of multiplying A by x:")
-lat.print_matrix(lat.matrix_mult(mat, x), 20)
+    # test two-matrix function
+    print("Thomas Factorization with two-matrix function")
+    L, U = factorization_twomatrices(mat)
+    print("L:")
+    lat.print_matrix(L, 5)
+    print("U:")
+    lat.print_matrix(U, 5)
+
+    # solve Ax=b
+    print("(b) Vector:")
+    lat.print_matrix(b, 0)
+    print("Solution (x) for Ax=b:")
+    x = solve(A, A, b)
+    lat.print_matrix(x, 20)
+    print("which becomes")
+    lat.print_matrix(x, 0, False)
+    print("when rounded.\n")
+    # this should return b
+    print("Result of multiplying A by x:")
+    lat.print_matrix(lat.matrix_mult(mat, x), 20)

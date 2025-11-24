@@ -58,34 +58,36 @@ def power_method(A, q_init, t = 10**(-8), maxiter=10000):
 
     return v, q_prev
 
-matrices = [
+if __name__ == '__main__':
 
-    [
-        [1,2,0],
-        [1,0,0],
-        [0,1,0]
-    ],
-    [
-        [0.1,3.8,0],
-        [1,0,0],
-        [0,1,0]
-    ],
-    [
-        [0,-1,0],
-        [1,0,0],
-        [0,1,0]
+    matrices = [
+
+        [
+            [1,2,0],
+            [1,0,0],
+            [0,1,0]
+        ],
+        [
+            [0.1,3.8,0],
+            [1,0,0],
+            [0,1,0]
+        ],
+        [
+            [0,-1,0],
+            [1,0,0],
+            [0,1,0]
+        ]
+
     ]
 
-]
+    q_0 = lat.scalar_mult(lat.transpose([[1,2,1]]), 1/math.sqrt(6))
 
-q_0 = lat.scalar_mult(lat.transpose([[1,2,1]]), 1/math.sqrt(6))
+    for matrix in matrices:
 
-for matrix in matrices:
-
-    print("Matrix")
-    lat.print_matrix(matrix, 1)
-    eigenvalue, eigenvector = power_method(matrix, q_0, threshold)
-    print("Largest eigenvalue:", eigenvalue)
-    print("Corresponding eigenvector:")
-    lat.print_matrix(eigenvector)
+        print("Matrix")
+        lat.print_matrix(matrix, 1)
+        eigenvalue, eigenvector = power_method(matrix, q_0, threshold)
+        print("Largest eigenvalue:", eigenvalue)
+        print("Corresponding eigenvector:")
+        lat.print_matrix(eigenvector)
     

@@ -52,29 +52,31 @@ def jacobi(A, x, b, t, c = 5):
     lat.print_matrix(x_prev, c)
     return x_prev
 
-A = [
+if __name__ == '__main__':
 
-    [3, 0, 1],
-    [1, -4, 1],
-    [-2, 2, 6]
+    A = [
 
-]
+        [3, 0, 1],
+        [1, -4, 1],
+        [-2, 2, 6]
 
-b = [
+    ]
 
-    [3],
-    [1],
-    [-1]
+    b = [
 
-]
+        [3],
+        [1],
+        [-1]
 
-x_0 = [
+    ]
 
-    [1],
-    [1],
-    [1]
+    x_0 = [
 
-]
+        [1],
+        [1],
+        [1]
 
-solution = jacobi(A, x_0, b, threshold, precision)
-lat.print_matrix(lat.matrix_mult(A, solution), precision)
+    ]
+
+    solution = jacobi(A, x_0, b, threshold, precision)
+    lat.print_matrix(lat.matrix_mult(A, solution), precision)

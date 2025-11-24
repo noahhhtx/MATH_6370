@@ -28,27 +28,29 @@ def factorize(A):
 
     return HT
 
-mat = [
+if __name__ == '__main__':
 
-    [4,12,-16],
-    [12,37,-43],
-    [-16,-43,98]
+    mat = [
 
-]
+        [4,12,-16],
+        [12,37,-43],
+        [-16,-43,98]
 
-print("Original Matrix:")
-lat.print_matrix(mat,0)
+    ]
 
-# Cholesky Factorization
-H_t = factorize(mat)
-H = lat.transpose(H_t)
-print("Choleksy Factorization Results")
-print("H^T:")
-lat.print_matrix(H_t, 5)
-print("H:")
-lat.print_matrix(H, 5)
-print("(H^T)H:")
-lat.print_matrix(lat.matrix_mult(H_t, H), 5, False)
-print("which becomes")
-lat.print_matrix(lat.matrix_mult(H_t, H), 0, False)
-print("when rounded.")
+    print("Original Matrix:")
+    lat.print_matrix(mat,0)
+
+    # Cholesky Factorization
+    H_t = factorize(mat)
+    H = lat.transpose(H_t)
+    print("Choleksy Factorization Results")
+    print("H^T:")
+    lat.print_matrix(H_t, 5)
+    print("H:")
+    lat.print_matrix(H, 5)
+    print("(H^T)H:")
+    lat.print_matrix(lat.matrix_mult(H_t, H), 5, False)
+    print("which becomes")
+    lat.print_matrix(lat.matrix_mult(H_t, H), 0, False)
+    print("when rounded.")

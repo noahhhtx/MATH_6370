@@ -60,19 +60,21 @@ def inverse_power_method(A, q_init, mu = 0, t = 10**(-8), maxiter = 10000):
 
     return v, q_prev
 
-matrix = [
+if __name__ == '__main__':
 
-    [1, -1, 0],
-    [-1, 3, 1],
-    [0, 1, 2]
+    matrix = [
 
-]
+        [1, -1, 0],
+        [-1, 3, 1],
+        [0, 1, 2]
 
-q_0 = lat.scalar_mult(lat.transpose([[1,2,1]]), 1/math.sqrt(6))
+    ]
 
-print("Matrix")
-lat.print_matrix(matrix, 1)
-eigenvalue, eigenvector = inverse_power_method(matrix, q_0, threshold)
-print("Smallest eigenvalue:", eigenvalue)
-print("Corresponding eigenvector:")
-lat.print_matrix(eigenvector)
+    q_0 = lat.scalar_mult(lat.transpose([[1,2,1]]), 1/math.sqrt(6))
+
+    print("Matrix")
+    lat.print_matrix(matrix, 1)
+    eigenvalue, eigenvector = inverse_power_method(matrix, q_0, threshold)
+    print("Smallest eigenvalue:", eigenvalue)
+    print("Corresponding eigenvector:")
+    lat.print_matrix(eigenvector)
